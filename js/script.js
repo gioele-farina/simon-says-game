@@ -19,6 +19,8 @@ var domandaPronta = false;
 var clickAbilitato = false;
 i = 0;
 
+// al click il gioco parte
+$(".circle").click(function() {
 var game = setInterval(function(){
   // Genera la domanda nuova solo se generaDomande = true.
   // all'inizio a prescindere, dopo solo se tutte le risposte sono state date.
@@ -26,11 +28,39 @@ var game = setInterval(function(){
     domande.push(randomNumber(4));
     console.log(domande);
     generaDomande = false;
-    clickAbilitato = true;
 
     //animazione domande
+    // per ogni elemento dentro domande crea animazione
+    j = 0;
+    for (var j = 0; j < domande.length; j++) {
+      if (domande[j] === 1) {
+        console.log("ciao 1");
+        $(".button.b-1").animate({
+          opacity: '0.5'
+        }, 500);
+      }
+      if (domande[j] === 2) {
+        console.log("ciao 2");
+        $(".button.b-2").animate({
+          opacity: '0.5'
+        }, 500);
+      }
+      if (domande[j] === 3) {
+        console.log("ciao 3");
+        $(".button.b-3").animate({
+          opacity: '0.5'
+        }, 500);
+      }
+      if (domande[j] === 4) {
+        console.log("ciao 4");
+        $(".button.b-4").animate({
+          opacity: '0.5'
+        }, 500);
+      }
+    }
 
     // fine animazione
+    clickAbilitato = true;
     domandaPronta = true;
   }
 
@@ -42,6 +72,7 @@ var game = setInterval(function(){
       i++;
     } else {
       console.log("Game over");
+      clickAbilitato = false;
       clearInterval(game);
     }
   }
@@ -54,7 +85,8 @@ var game = setInterval(function(){
     i = 0;
   }
 
-}, 500);
+}, 100);
+});
 
 /*
                 EVENT LISTENERS
@@ -103,7 +135,6 @@ function randomNumber(max){
 }
 
 //Ridimensiona in modo automatico gli oggetti che hanno classe js-resize.
-// Lo fa solo al ridimenisonamento, quindi lo devo fare anche al caricamento della pagina.
 $( document ).ready(function() {
   var finalWidth;
   var finalHeight;
