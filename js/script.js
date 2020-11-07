@@ -1,16 +1,41 @@
 $( document ).ready(function() {
 // inizio del codie
 
+/*
+      variabili globali
+*/
+var sonoSulBottone = "none";
 
+
+
+// gioco va avanti fino al game over
+
+// genera un numero casuale tra 1 e 4 e lo aggiunge al vettori domande
+
+// per ogni elemento in vettori domande:
+  // ascolta il click
+
+  //se risposta corretta va avanti altimenti game over
+
+// controllate tutte le risposte ricomincia da capo
 
 
 /*
-      controllo posizione mouse
+                EVENT LISTENERS
 */
+// controlla su quale bottone sono
 $("#game-container .button").mouseover(function(){
-
+  if ($(this).hasClass("b-1")) {
+    sonoSulBottone = "1";
+  } else if ($(this).hasClass("b-2")) {
+    sonoSulBottone = "2";
+  } else if ($(this).hasClass("b-3")) {
+    sonoSulBottone = "3";
+  } else if ($(this).hasClass("b-4")) {
+    sonoSulBottone = "4";
+  }
+  console.log("Sono sul bottone: ", sonoSulBottone);
 });
-
 
 
 /*
@@ -73,9 +98,6 @@ $(window).resize(function(){
   }
 
 });
-
-
-
 
 // fine document ready
 });
