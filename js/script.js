@@ -9,74 +9,8 @@ var gameOver = false;
 var contaRound = 0;
 
 var domande = [];
+var risposta;
 
-// gioco va avanti fino al game over
-// while (!gameOver) {
-for (var j = 0; j < 5; j++) {
-  contaRound++;
-  console.log("round: ",contaRound);
-
-  // genera un numero casuale tra 1 e 4 e lo aggiunge al vettori domande
-  domande.push(randomNumber(4));
-
-  // per ogni elemento in vettori domande:
-  i = 0;
-  for (var i = 0; i < domande.length; i++) {
-    // attende il click e dice cosa hai cliccato
-    //Risposta utente
-
-    async function rispostaUtente() {
-      let myPromise = new Promise(function (myResolve, myReject) {
-        $("#game-container").click(function() {
-          if (sonoSulBottone === "1") {
-            myResolve("Hai cliccato 1");
-          } else if (sonoSulBottone === "2") {
-            myResolve("Hai cliccato 2");
-          } else if (sonoSulBottone === "3") {
-            myResolve("Hai cliccato 3");
-          } else if (sonoSulBottone === "4") {
-            myResolve("Hai cliccato 4");
-          }
-        });
-      });
-      var risposta = await myPromise;
-      console.log(risposta);
-    }
-
-    rispostaUtente();
-
-
-  }
-
-  console.log("giri ciclo", i);
-  console.log("numero domande",domande.length);
-
-  gameOver = true;
-  console.log("exit");
-}
-
-
-
-
-/*
-async function myDisplay() {
-  let myPromise = new Promise(function(myResolve, myReject) {
-    myResolve("I love You !!");
-  });
-  testo = await myPromise;
-  console.log(testo);
-}
-
-myDisplay();
-*/
-
-
-
-
-
-  //se risposta corretta va avanti altimenti game over
-
-// controllate tutte le risposte ricomincia da capo
 
 
 /*
@@ -100,6 +34,18 @@ $("#game-container .button").mouseleave(function(){
   sonoSulBottone = "none";
 });
 
+// Riposte utente
+$("#game-container").click(function() {
+  if (sonoSulBottone === "1") {
+    console.log("Hai cliccato 1");
+  } else if (sonoSulBottone === "2") {
+    console.log("Hai cliccato 2");
+  } else if (sonoSulBottone === "3") {
+    console.log("Hai cliccato 3");
+  } else if (sonoSulBottone === "4") {
+    console.log("Hai cliccato 4");
+  }
+});
 
 /*
                   UTILITIES
