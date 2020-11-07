@@ -11,7 +11,8 @@ var contaRound = 0;
 var domande = [];
 
 // gioco va avanti fino al game over
-while (!gameOver) {
+// while (!gameOver) {
+for (var j = 0; j < 5; j++) {
   contaRound++;
   console.log("round: ",contaRound);
 
@@ -23,30 +24,30 @@ while (!gameOver) {
   for (var i = 0; i < domande.length; i++) {
     // attende il click e dice cosa hai cliccato
     //Risposta utente
-    var rispostaUtente = new Promise(function(resolve,reject){
-      $("#game-container").click(function() {
-        if (sonoSulBottone === "1") {
-          resolve("Hai cliccato 1");
-        } else if (sonoSulBottone === "2") {
-          resolve("Hai cliccato 2");
-        } else if (sonoSulBottone === "3") {
-          resolve("Hai cliccato 3");
-        } else if (sonoSulBottone === "4") {
-          resolve("Hai cliccato 4");
-        } else {
-          reject ("errore");
-        }
-      });
-    });
 
-    // attende la risoluzione della promessa precedente
-    rispostaUtente.then(function(rispostaData){
-        console.log('Risposta data: ' + rispostaData);
-    }).catch(function(rispostaData){
-        console.log(rispostaData);
-    });
+    async function rispostaUtente() {
+      let myPromise = new Promise(function (myResolve, myReject) {
+        $("#game-container").click(function() {
+          if (sonoSulBottone === "1") {
+            myResolve("Hai cliccato 1");
+          } else if (sonoSulBottone === "2") {
+            myResolve("Hai cliccato 2");
+          } else if (sonoSulBottone === "3") {
+            myResolve("Hai cliccato 3");
+          } else if (sonoSulBottone === "4") {
+            myResolve("Hai cliccato 4");
+          }
+        });
+      });
+      var risposta = await myPromise;
+      console.log(risposta);
+    }
+
+    rispostaUtente();
+
 
   }
+
   console.log("giri ciclo", i);
   console.log("numero domande",domande.length);
 
@@ -55,24 +56,19 @@ while (!gameOver) {
 }
 
 
+
+
 /*
-    $("#game-container").click(function() {
-      if (sonoSulBottone === "1") {
-        console.log("Hai cliccato 1");
-      } else if (sonoSulBottone === "2") {
-        console.log("Hai cliccato 2");
-      } else if (sonoSulBottone === "3") {
-        console.log("Hai cliccato 3");
-      } else if (sonoSulBottone === "4") {
-        console.log("Hai cliccato 4");
-      }
-      console.log("giri ciclo", i);
-      console.log("numero domande",domande.length);
-    });
+async function myDisplay() {
+  let myPromise = new Promise(function(myResolve, myReject) {
+    myResolve("I love You !!");
+  });
+  testo = await myPromise;
+  console.log(testo);
+}
+
+myDisplay();
 */
-
-
-
 
 
 
