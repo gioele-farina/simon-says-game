@@ -31,13 +31,13 @@ var game = setInterval(function(){
 
     //animazione domande
     // per ogni elemento dentro domande crea animazione
-    j = 0;
+    var j = 0;
     for (var j = 0; j < domande.length; j++) {
       if (domande[j] === 1) {
 
         $(".button.b-1").animate({
           left: 0 //mi serve solo come timer
-        }, 100, function() {
+        }, 0, function() {
           // Animation complete.
           console.log("aggiunta classe");
           $(".button.b-1").addClass("playing");
@@ -52,7 +52,7 @@ var game = setInterval(function(){
 
         $(".button.b-1").animate({
           left: 0 //mi serve solo come timer
-        }, 100, function() {
+        }, 500, function() {
           console.log("finito");
         });
 
@@ -62,7 +62,7 @@ var game = setInterval(function(){
 
         $(".button.b-2").animate({
           left: 0 //mi serve solo come timer
-        }, 100, function() {
+        }, 0, function() {
           // Animation complete.
           console.log("aggiunta classe");
           $(".button.b-2").addClass("playing");
@@ -77,7 +77,7 @@ var game = setInterval(function(){
 
         $(".button.b-2").animate({
           left: 0 //mi serve solo come timer
-        }, 100, function() {
+        }, 500, function() {
           console.log("finito");
         });
 
@@ -87,7 +87,7 @@ var game = setInterval(function(){
 
         $(".button.b-3").animate({
           left: 0 //mi serve solo come timer
-        }, 100, function() {
+        }, 0, function() {
           // Animation complete.
           console.log("aggiunta classe");
           $(".button.b-3").addClass("playing");
@@ -102,7 +102,7 @@ var game = setInterval(function(){
 
         $(".button.b-3").animate({
           left: 0 //mi serve solo come timer
-        }, 100, function() {
+        }, 500, function() {
           console.log("finito");
         });
 
@@ -112,7 +112,7 @@ var game = setInterval(function(){
 
         $(".button.b-4").animate({
           left: 0 //mi serve solo come timer
-        }, 100, function() {
+        }, 0, function() {
           // Animation complete.
           console.log("aggiunta classe");
           $(".button.b-4").addClass("playing");
@@ -126,7 +126,7 @@ var game = setInterval(function(){
         });
         $(".button.b-4").animate({
           left: 0 //mi serve solo come timer
-        }, 100, function() {
+        }, 500, function() {
           console.log("finito");
         });
 
