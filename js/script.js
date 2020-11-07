@@ -35,8 +35,14 @@ var game = setInterval(function(){
     for (var j = 0; j < domande.length; j++) {
       if (domande[j] === 1) {
 
-        console.log("ciao 1");
-        $(".button.b-1").addClass("playing");
+        $(".button.b-1").animate({
+          left: 0 //mi serve solo come timer
+        }, 100, function() {
+          // Animation complete.
+          console.log("aggiunta classe");
+          $(".button.b-1").addClass("playing");
+        });
+
         $(".button.b-1").animate({
           left: 0 //mi serve solo come timer
         }, 500, function() {
@@ -44,18 +50,86 @@ var game = setInterval(function(){
           $(".button.b-1").removeClass("playing");
         });
 
+        $(".button.b-1").animate({
+          left: 0 //mi serve solo come timer
+        }, 100, function() {
+          console.log("finito");
+        });
+
       }
 
       if (domande[j] === 2) {
-        console.log("ciao 2");
+
+        $(".button.b-2").animate({
+          left: 0 //mi serve solo come timer
+        }, 100, function() {
+          // Animation complete.
+          console.log("aggiunta classe");
+          $(".button.b-2").addClass("playing");
+        });
+
+        $(".button.b-2").animate({
+          left: 0 //mi serve solo come timer
+        }, 500, function() {
+          // Animation complete.
+          $(".button.b-2").removeClass("playing");
+        });
+
+        $(".button.b-2").animate({
+          left: 0 //mi serve solo come timer
+        }, 100, function() {
+          console.log("finito");
+        });
+
       }
 
       if (domande[j] === 3) {
-        console.log("ciao 3");
+
+        $(".button.b-3").animate({
+          left: 0 //mi serve solo come timer
+        }, 100, function() {
+          // Animation complete.
+          console.log("aggiunta classe");
+          $(".button.b-3").addClass("playing");
+        });
+
+        $(".button.b-3").animate({
+          left: 0 //mi serve solo come timer
+        }, 500, function() {
+          // Animation complete.
+          $(".button.b-3").removeClass("playing");
+        });
+
+        $(".button.b-3").animate({
+          left: 0 //mi serve solo come timer
+        }, 100, function() {
+          console.log("finito");
+        });
+
       }
 
       if (domande[j] === 4) {
-        console.log("ciao 4");
+
+        $(".button.b-4").animate({
+          left: 0 //mi serve solo come timer
+        }, 100, function() {
+          // Animation complete.
+          console.log("aggiunta classe");
+          $(".button.b-4").addClass("playing");
+        });
+
+        $(".button.b-4").animate({
+          left: 0 //mi serve solo come timer
+        }, 500, function() {
+          // Animation complete.
+          $(".button.b-4").removeClass("playing");
+        });
+        $(".button.b-4").animate({
+          left: 0 //mi serve solo come timer
+        }, 100, function() {
+          console.log("finito");
+        });
+
       }
 
     }
