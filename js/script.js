@@ -22,6 +22,8 @@ while (!gameOver) {
   i = 0;
   for (var i = 0; i < domande.length; i++) {
     // ascolta il click
+    // attende il click e dice cosa hai cliccato
+
     $("#game-container").click(function() {
       if (sonoSulBottone === "1") {
         console.log("Hai cliccato 1");
@@ -73,7 +75,6 @@ $("#game-container .button").mouseleave(function(){
 });
 
 
-
 /*
                   UTILITIES
 */
@@ -81,7 +82,6 @@ $("#game-container .button").mouseleave(function(){
 function randomNumber(max){
   return Math.floor(Math.random() * max) + 1;
 }
-
 
 //Ridimensiona in modo automatico gli oggetti che hanno classe js-resize.
 // Lo fa solo al ridimenisonamento, quindi lo devo fare anche al caricamento della pagina.
