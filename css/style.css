@@ -21,13 +21,12 @@ body {
   flex-wrap: wrap;
   position: relative;
   /* DEBUG:  */
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 #game-container .button {
   width: 50%;
   height: 50%;
-  /* DEBUG:  */
   border: 1px solid black;
 }
 
@@ -53,8 +52,8 @@ body {
 
 
 #game-container .circle {
-  width: 35%;
-  height: 35%;
+  width: 30%;
+  height: 30%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -62,4 +61,14 @@ body {
   border: 1px solid black;
   border-radius: 50%;
   background-color: white;
+}
+
+/* animazioni */
+#game-container .button {
+  filter: brightness(0.9);
+}
+
+#game-container .button:hover {
+  filter: brightness(1.5);
+  transform: scale(0.95);
 }

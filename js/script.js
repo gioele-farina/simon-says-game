@@ -2,6 +2,17 @@ $( document ).ready(function() {
 // inizio del codie
 
 
+
+
+/*
+      controllo posizione mouse
+*/
+$("#game-container .button").mouseover(function(){
+
+});
+
+
+
 /*
                   UTILITIES
 */
