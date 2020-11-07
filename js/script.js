@@ -14,6 +14,17 @@ var sonoSulBottone = "none";
 
 // per ogni elemento in vettori domande:
   // ascolta il click
+  $("#game-container").click(function() {
+    if (sonoSulBottone === "1") {
+      console.log("Hai cliccato 1");
+    } else if (sonoSulBottone === "2") {
+      console.log("Hai cliccato 2");
+    } else if (sonoSulBottone === "3") {
+      console.log("Hai cliccato 3");
+    } else if (sonoSulBottone === "4") {
+      console.log("Hai cliccato 4");
+    }
+  });
 
   //se risposta corretta va avanti altimenti game over
 
@@ -34,8 +45,13 @@ $("#game-container .button").mouseover(function(){
   } else if ($(this).hasClass("b-4")) {
     sonoSulBottone = "4";
   }
-  console.log("Sono sul bottone: ", sonoSulBottone);
 });
+
+//Se esco dal bottone resetto la variabile sonoSulBottone
+$("#game-container .button").mouseleave(function(){
+  sonoSulBottone = "none";
+});
+
 
 
 /*
