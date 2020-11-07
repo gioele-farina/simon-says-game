@@ -34,29 +34,30 @@ var game = setInterval(function(){
     j = 0;
     for (var j = 0; j < domande.length; j++) {
       if (domande[j] === 1) {
+
         console.log("ciao 1");
+        $(".button.b-1").addClass("playing");
         $(".button.b-1").animate({
-          opacity: '0.5'
-        }, 500);
+          left: 0 //mi serve solo come timer
+        }, 500, function() {
+          // Animation complete.
+          $(".button.b-1").removeClass("playing");
+        });
+
       }
+
       if (domande[j] === 2) {
         console.log("ciao 2");
-        $(".button.b-2").animate({
-          opacity: '0.5'
-        }, 500);
       }
+
       if (domande[j] === 3) {
         console.log("ciao 3");
-        $(".button.b-3").animate({
-          opacity: '0.5'
-        }, 500);
       }
+
       if (domande[j] === 4) {
         console.log("ciao 4");
-        $(".button.b-4").animate({
-          opacity: '0.5'
-        }, 500);
       }
+
     }
 
     // fine animazione
