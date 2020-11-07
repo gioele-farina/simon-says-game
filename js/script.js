@@ -9,9 +9,51 @@ var gameOver = false;
 var contaRound = 0;
 
 var domande = [];
-var risposta;
+var risposta = false;
 
+/*
+                GAME
+*/
+var generaDomande = true;
+var domandaPronta = false;
+var clickAbilitato = false;
+i = 0;
 
+var game = setInterval(function(){
+  // Genera la domanda nuova solo se generaDomande = true.
+  // all'inizio a prescindere, dopo solo se tutte le risposte sono state date.
+  if (generaDomande) {
+    domande.push(randomNumber(4));
+    console.log(domande);
+    generaDomande = false;
+    clickAbilitato = true;
+
+    //animazione domande
+
+    // fine animazione
+    domandaPronta = true;
+  }
+
+  //controlla la risposta solo se l'animazione delle domande ha finito,
+  // e solo dopo aver aspettato che l'utente da la risposposta ad ogni iterazione di i.
+  if (domandaPronta && risposta != false) {
+    if (risposta == domande[i]) {
+      risposta = false;
+      i++;
+    } else {
+      console.log("Game over");
+      clearInterval(game);
+    }
+  }
+
+  // Se tutte le risposte sono esatte allora genera una nuova domanda
+  if (i > domande.length) {
+    generaDomande = true;
+    clickAbilitato = false;
+    i = 0;
+  }
+
+}, 500);
 
 /*
                 EVENT LISTENERS
@@ -36,14 +78,18 @@ $("#game-container .button").mouseleave(function(){
 
 // Riposte utente
 $("#game-container").click(function() {
-  if (sonoSulBottone === "1") {
+  if (sonoSulBottone === "1" && clickAbilitato === true) {
     console.log("Hai cliccato 1");
-  } else if (sonoSulBottone === "2") {
+    risposta = "1";
+  } else if (sonoSulBottone === "2" && clickAbilitato === true) {
     console.log("Hai cliccato 2");
-  } else if (sonoSulBottone === "3") {
+    risposta = "2";
+  } else if (sonoSulBottone === "3" && clickAbilitato === true) {
     console.log("Hai cliccato 3");
-  } else if (sonoSulBottone === "4") {
+    risposta = "3";
+  } else if (sonoSulBottone === "4" && clickAbilitato === true) {
     console.log("Hai cliccato 4");
+    risposta = "4";
   }
 });
 
