@@ -5,26 +5,46 @@ $( document ).ready(function() {
       variabili globali
 */
 var sonoSulBottone = "none";
+var gameOver = false;
+var contaRound = 0;
 
-
+var domande = [];
 
 // gioco va avanti fino al game over
+while (!gameOver) {
+  contaRound++;
+  console.log("round: ",contaRound);
 
-// genera un numero casuale tra 1 e 4 e lo aggiunge al vettori domande
+  // genera un numero casuale tra 1 e 4 e lo aggiunge al vettori domande
+  domande.push(randomNumber(4));
 
-// per ogni elemento in vettori domande:
-  // ascolta il click
-  $("#game-container").click(function() {
-    if (sonoSulBottone === "1") {
-      console.log("Hai cliccato 1");
-    } else if (sonoSulBottone === "2") {
-      console.log("Hai cliccato 2");
-    } else if (sonoSulBottone === "3") {
-      console.log("Hai cliccato 3");
-    } else if (sonoSulBottone === "4") {
-      console.log("Hai cliccato 4");
-    }
-  });
+  // per ogni elemento in vettori domande:
+  i = 0;
+  for (var i = 0; i < domande.length; i++) {
+    // ascolta il click
+    $("#game-container").click(function() {
+      if (sonoSulBottone === "1") {
+        console.log("Hai cliccato 1");
+      } else if (sonoSulBottone === "2") {
+        console.log("Hai cliccato 2");
+      } else if (sonoSulBottone === "3") {
+        console.log("Hai cliccato 3");
+      } else if (sonoSulBottone === "4") {
+        console.log("Hai cliccato 4");
+      }
+      console.log("giri ciclo", i);
+      console.log("numero domande",domande.length);
+    });
+
+  }
+
+
+  gameOver = true;
+}
+
+
+
+
 
   //se risposta corretta va avanti altimenti game over
 
