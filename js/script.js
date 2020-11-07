@@ -47,8 +47,9 @@ var game = setInterval(function(){
   }
 
   // Se tutte le risposte sono esatte allora genera una nuova domanda
-  if (i > domande.length) {
+  if (i === domande.length) {
     generaDomande = true;
+    domandaPronta = false;
     clickAbilitato = false;
     i = 0;
   }
