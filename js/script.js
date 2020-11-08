@@ -121,6 +121,19 @@ $("#game-container").click(function() {
   }
 });
 
+//piccola animazione al click
+$("#game-container .button").click(function(){
+  if (clickAbilitato === true) {
+    $(this).addClass("userclick");
+    $(this).animate({
+      left: 0 //mi serve solo come timer
+    }, 150, function() {
+      // Animation complete.
+      $(this).removeClass("userclick");
+    });
+  }
+});
+
 /*
                   UTILITIES
 */
