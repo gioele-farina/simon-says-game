@@ -22,55 +22,65 @@ var controlloAnimazione;
 i = 0;
 j = 0;
 
+/*
+                stati iniziali visibili/invisibili
+*/
+$(".circle .testo").hide();
+
+
 // al click il gioco parte
-$(".circle").click(function() {
-var game = setInterval(function(){
-  // Genera la domanda nuova solo se generaDomande = true.
-  // all'inizio a prescindere, dopo solo se tutte le risposte sono state date.
-  if (generaDomande) {
-    setTimeout(function(){$(".button").removeClass("clickable");}, 1000);
-    domande.push(randomNumber(4));
-    console.log(domande);
-    generaDomande = false;
+$(".circle .play").click(function() {
+  $(".circle .play").hide();
+  $(".circle .testo").show();
+  var game = setInterval(function(){
+    // Genera la domanda nuova solo se generaDomande = true.
+    // all'inizio a prescindere, dopo solo se tutte le risposte sono state date.
+    if (generaDomande) {
+      setTimeout(function(){$(".button").removeClass("clickable");}, 1000);
+      domande.push(randomNumber(4));
+      console.log(domande);
+      generaDomande = false;
 
 
-  //animazione domande solo se l'animazione non è già in corso
-    if (animazioneAttiva === false) {
-      j = 0;
-      animazioneAttiva = true;
-      controlloAnimazione = setInterval(function(){
-         animazione();
-      }, 1000);
+    //animazione domande solo se l'animazione non è già in corso
+      if (animazioneAttiva === false) {
+        j = 0;
+        animazioneAttiva = true;
+        controlloAnimazione = setInterval(function(){
+           animazione();
+        }, 1000);
+      }
     }
-  }
-    // Dentro la funzione animazoine queste variabili sono settate così
-    // clickAbilitato = true;
-    // domandaPronta = true;
+      // Dentro la funzione animazoine queste variabili sono settate così
+      // clickAbilitato = true;
+      // domandaPronta = true;
 
 
-  //controlla la risposta solo se l'animazione delle domande ha finito,
-  // e solo dopo aver aspettato che l'utente da la risposposta ad ogni iterazione di i.
-  if (domandaPronta && risposta != false) {
-    if (risposta == domande[i]) {
-      risposta = false;
-      i++;
-    } else {
-      console.log("Game over");
+    //controlla la risposta solo se l'animazione delle domande ha finito,
+    // e solo dopo aver aspettato che l'utente da la risposposta ad ogni iterazione di i.
+    if (domandaPronta && risposta != false) {
+      if (risposta == domande[i]) {
+        risposta = false;
+        i++;
+      } else {
+        console.log("Game over");
+        clickAbilitato = false;
+        clearInterval(game);
+      }
+    }
+
+    // Se tutte le risposte sono esatte allora genera una nuova domanda
+    if (i === domande.length) {
+      generaDomande = true;
+      domandaPronta = false;
       clickAbilitato = false;
-      clearInterval(game);
+      animazioneAttiva = false;
+      i = 0;
+      contaRound++;
+      $(".circle .testo").text(contaRound);
     }
-  }
 
-  // Se tutte le risposte sono esatte allora genera una nuova domanda
-  if (i === domande.length) {
-    generaDomande = true;
-    domandaPronta = false;
-    clickAbilitato = false;
-    animazioneAttiva = false;
-    i = 0;
-  }
-
-}, 100);
+  }, 100);
 });
 
 /*

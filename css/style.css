@@ -61,6 +61,17 @@ body {
   border: 1px solid black;
   border-radius: 50%;
   background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#game-container .circle * {
+  font-size: 35px;
+}
+
+.play:hover{
+  transform: scale(1.1);
 }
 
 /* animazioni */
@@ -70,11 +81,10 @@ body {
 
 #game-container .clickable.button:hover {
   filter: brightness(1.5);
-  /* transform: scale(0.95); */
 }
 
 /* animazione durante l'esecuzione js */
 #game-container .button.playing {
   filter: brightness(1.5);
-  transform: scale(0.95);
+  transform: scale(0.80);
 }
