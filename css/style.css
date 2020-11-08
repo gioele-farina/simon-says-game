@@ -14,6 +14,11 @@ body {
 
 /* fine regole generali */
 
+/* fino a caricamento pagina il gioco è invisibile */
+.invisible {
+  display: none;
+}
+
 #game-container {
   min-width: 150px;
   min-height: 150px;

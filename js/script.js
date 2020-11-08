@@ -12,6 +12,15 @@ var domande = [];
 var risposta = false;
 
 /*
+      SUONI
+*/
+var play1 = new Audio ('audio/1-new.wav');
+var play2 = new Audio ('audio/2-new.wav');
+var play3 = new Audio ('audio/3-new.wav');
+var play4 = new Audio ('audio/4-new.wav');
+var playFail = new Audio ('audio/fail.wav');
+
+/*
                 GAME
 */
 var generaDomande = true;
@@ -27,6 +36,7 @@ j = 0;
 */
 $(".circle .testo").hide();
 $(".circle .wrong").hide();
+$("#game-container").removeClass("invisible");
 
 // al click il gioco parte
 $(".circle .play").click(function() {
@@ -64,6 +74,7 @@ $(".circle .play").click(function() {
         i++;
       } else {
         console.log("Game over");
+        playFail.play();
         clickAbilitato = false;
         $(".circle .testo").hide();
         $(".circle .wrong").show();
@@ -200,6 +211,7 @@ function animazione(){
   clickAbilitato = false;
   if (domande[j] === 1) {
 
+    play1.play();
     $(".button.b-1").animate({
       left: 0 //mi serve solo come timer
     }, 0, function() {
@@ -226,6 +238,7 @@ function animazione(){
 
   if (domande[j] === 2) {
 
+    play2.play();
     $(".button.b-2").animate({
       left: 0 //mi serve solo come timer
     }, 0, function() {
@@ -252,6 +265,7 @@ function animazione(){
 
   if (domande[j] === 3) {
 
+    play3.play();
     $(".button.b-3").animate({
       left: 0 //mi serve solo come timer
     }, 0, function() {
@@ -278,6 +292,7 @@ function animazione(){
 
   if (domande[j] === 4) {
 
+    play4.play();
     $(".button.b-4").animate({
       left: 0 //mi serve solo come timer
     }, 0, function() {
