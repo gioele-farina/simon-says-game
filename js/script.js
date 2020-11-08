@@ -26,7 +26,7 @@ j = 0;
                 stati iniziali visibili/invisibili
 */
 $(".circle .testo").hide();
-
+$(".circle .wrong").hide();
 
 // al click il gioco parte
 $(".circle .play").click(function() {
@@ -65,6 +65,8 @@ $(".circle .play").click(function() {
       } else {
         console.log("Game over");
         clickAbilitato = false;
+        $(".circle .testo").hide();
+        $(".circle .wrong").show();
         clearInterval(game);
       }
     }

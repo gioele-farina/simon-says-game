@@ -84,11 +84,11 @@ body {
 }
 
 #game-container .button.userclick {
-  transform: scale(0.95);
+  transform: scale(0.90);
 }
 
 /* animazione durante l'esecuzione js */
 #game-container .button.playing {
   filter: brightness(1.5);
-  transform: scale(0.80);
+  transform: scale(0.90);
 }
