@@ -31,15 +31,16 @@ var game = setInterval(function(){
     domande.push(randomNumber(4));
     console.log(domande);
     generaDomande = false;
-  }
+
 
   //animazione domande solo se l'animazione non è già in corso
-  if (animazioneAttiva === false) {
-    j = 0;
-    animazioneAttiva = true;
-    controlloAnimazione = setInterval(function(){
-       animazione();
-    }, 1000);
+    if (animazioneAttiva === false) {
+      j = 0;
+      animazioneAttiva = true;
+      controlloAnimazione = setInterval(function(){
+         animazione();
+      }, 1000);
+    }
   }
     // Dentro la funzione animazoine queste variabili sono settate così
     // clickAbilitato = true;
