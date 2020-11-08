@@ -28,6 +28,7 @@ var game = setInterval(function(){
   // Genera la domanda nuova solo se generaDomande = true.
   // all'inizio a prescindere, dopo solo se tutte le risposte sono state date.
   if (generaDomande) {
+    setTimeout(function(){$(".button").removeClass("clickable");}, 1000);
     domande.push(randomNumber(4));
     console.log(domande);
     generaDomande = false;
@@ -279,6 +280,8 @@ function animazione(){
     clickAbilitato = true;
     domandaPronta = true;
     console.log("animazione finita");
+    // aggiungo la classe clickable ai bottoni per attivare l'hover
+    $(".button").addClass("clickable");
     clearInterval(controlloAnimazione);
   }
 }

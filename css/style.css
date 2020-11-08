@@ -68,9 +68,9 @@ body {
   filter: brightness(0.9);
 }
 
-#game-container .button:hover {
+#game-container .clickable.button:hover {
   filter: brightness(1.5);
-  transform: scale(0.95);
+  /* transform: scale(0.95); */
 }
 
 /* animazione durante l'esecuzione js */
