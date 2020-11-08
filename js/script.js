@@ -18,7 +18,9 @@ var generaDomande = true;
 var domandaPronta = false;
 var clickAbilitato = false;
 var animazioneAttiva = false;
+var controlloAnimazione;
 i = 0;
+j = 0;
 
 // al click il gioco parte
 $(".circle").click(function() {
@@ -32,9 +34,11 @@ var game = setInterval(function(){
 
     //animazione domande solo se l'animazione non è già in corso
     if (animazioneAttiva === false) {
-      setTimeout(function(){
+      j = 0;
+      animazioneAttiva = true;
+      controlloAnimazione = setInterval(function(){
          animazione();
-      }, 0);
+      }, 1000);
     }
     // Dentro la funzione animazoine queste variabili sono settate così
     // clickAbilitato = true;
@@ -164,112 +168,114 @@ $(window).resize(function(){
 });
 
 function animazione(){
-  var j = 0;
-  for (var j = 0; j < domande.length; j++) {
-    if (domande[j] === 1) {
 
-      $(".button.b-1").animate({
-        left: 0 //mi serve solo come timer
-      }, 500, function() {
-        // Animation complete.
-        console.log("aggiunta classe");
-        $(".button.b-1").addClass("playing");
-      });
+  if (domande[j] === 1) {
 
-      $(".button.b-1").animate({
-        left: 0 //mi serve solo come timer
-      }, 500, function() {
-        // Animation complete.
-        $(".button.b-1").removeClass("playing");
-      });
+    $(".button.b-1").animate({
+      left: 0 //mi serve solo come timer
+    }, 0, function() {
+      // Animation complete.
+      console.log("aggiunta classe");
+      $(".button.b-1").addClass("playing");
+    });
 
-      $(".button.b-1").animate({
-        left: 0 //mi serve solo come timer
-      }, 500, function() {
-        console.log("finito");
-      });
+    $(".button.b-1").animate({
+      left: 0 //mi serve solo come timer
+    }, 500, function() {
+      // Animation complete.
+      $(".button.b-1").removeClass("playing");
+    });
 
-    }
+    $(".button.b-1").animate({
+      left: 0 //mi serve solo come timer
+    }, 0, function() {
+      console.log("finito");
+    });
 
-    if (domande[j] === 2) {
-
-      $(".button.b-2").animate({
-        left: 0 //mi serve solo come timer
-      }, 500, function() {
-        // Animation complete.
-        console.log("aggiunta classe");
-        $(".button.b-2").addClass("playing");
-      });
-
-      $(".button.b-2").animate({
-        left: 0 //mi serve solo come timer
-      }, 500, function() {
-        // Animation complete.
-        $(".button.b-2").removeClass("playing");
-      });
-
-      $(".button.b-2").animate({
-        left: 0 //mi serve solo come timer
-      }, 500, function() {
-        console.log("finito");
-      });
-
-    }
-
-    if (domande[j] === 3) {
-
-      $(".button.b-3").animate({
-        left: 0 //mi serve solo come timer
-      }, 500, function() {
-        // Animation complete.
-        console.log("aggiunta classe");
-        $(".button.b-3").addClass("playing");
-      });
-
-      $(".button.b-3").animate({
-        left: 0 //mi serve solo come timer
-      }, 500, function() {
-        // Animation complete.
-        $(".button.b-3").removeClass("playing");
-      });
-
-      $(".button.b-3").animate({
-        left: 0 //mi serve solo come timer
-      }, 500, function() {
-        console.log("finito");
-      });
-
-    }
-
-    if (domande[j] === 4) {
-
-      $(".button.b-4").animate({
-        left: 0 //mi serve solo come timer
-      }, 500, function() {
-        // Animation complete.
-        console.log("aggiunta classe");
-        $(".button.b-4").addClass("playing");
-      });
-
-      $(".button.b-4").animate({
-        left: 0 //mi serve solo come timer
-      }, 500, function() {
-        // Animation complete.
-        $(".button.b-4").removeClass("playing");
-      });
-      $(".button.b-4").animate({
-        left: 0 //mi serve solo come timer
-      }, 500, function() {
-        console.log("finito");
-      });
-
-    }
   }
 
-  clickAbilitato = true;
-  domandaPronta = true;
-  console.log("animazione finita");
+  if (domande[j] === 2) {
 
+    $(".button.b-2").animate({
+      left: 0 //mi serve solo come timer
+    }, 0, function() {
+      // Animation complete.
+      console.log("aggiunta classe");
+      $(".button.b-2").addClass("playing");
+    });
+
+    $(".button.b-2").animate({
+      left: 0 //mi serve solo come timer
+    }, 500, function() {
+      // Animation complete.
+      $(".button.b-2").removeClass("playing");
+    });
+
+    $(".button.b-2").animate({
+      left: 0 //mi serve solo come timer
+    }, 0, function() {
+      console.log("finito");
+    });
+
+  }
+
+  if (domande[j] === 3) {
+
+    $(".button.b-3").animate({
+      left: 0 //mi serve solo come timer
+    }, 0, function() {
+      // Animation complete.
+      console.log("aggiunta classe");
+      $(".button.b-3").addClass("playing");
+    });
+
+    $(".button.b-3").animate({
+      left: 0 //mi serve solo come timer
+    }, 500, function() {
+        // Animation complete.
+      $(".button.b-3").removeClass("playing");
+    });
+
+    $(".button.b-3").animate({
+      left: 0 //mi serve solo come timer
+    }, 0, function() {
+      console.log("finito");
+    });
+
+  }
+
+  if (domande[j] === 4) {
+
+    $(".button.b-4").animate({
+      left: 0 //mi serve solo come timer
+    }, 0, function() {
+      // Animation complete.
+      console.log("aggiunta classe");
+      $(".button.b-4").addClass("playing");
+    });
+
+    $(".button.b-4").animate({
+      left: 0 //mi serve solo come timer
+    }, 500, function() {
+      // Animation complete.
+      $(".button.b-4").removeClass("playing");
+    });
+    $(".button.b-4").animate({
+      left: 0 //mi serve solo come timer
+    }, 0, function() {
+      console.log("finito");
+    });
+
+  }
+
+  j++;
+
+  if (j == domande.length) {
+    clickAbilitato = true;
+    domandaPronta = true;
+    console.log("animazione finita");
+    clearInterval(controlloAnimazione);
+  }
 }
 
 // fine document ready
