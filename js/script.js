@@ -31,19 +31,20 @@ var game = setInterval(function(){
     domande.push(randomNumber(4));
     console.log(domande);
     generaDomande = false;
+  }
 
-    //animazione domande solo se l'animazione non è già in corso
-    if (animazioneAttiva === false) {
-      j = 0;
-      animazioneAttiva = true;
-      controlloAnimazione = setInterval(function(){
-         animazione();
-      }, 1000);
-    }
+  //animazione domande solo se l'animazione non è già in corso
+  if (animazioneAttiva === false) {
+    j = 0;
+    animazioneAttiva = true;
+    controlloAnimazione = setInterval(function(){
+       animazione();
+    }, 1000);
+  }
     // Dentro la funzione animazoine queste variabili sono settate così
     // clickAbilitato = true;
     // domandaPronta = true;
-  }
+
 
   //controlla la risposta solo se l'animazione delle domande ha finito,
   // e solo dopo aver aspettato che l'utente da la risposposta ad ogni iterazione di i.
@@ -63,7 +64,7 @@ var game = setInterval(function(){
     generaDomande = true;
     domandaPronta = false;
     clickAbilitato = false;
-    animazione = false;
+    animazioneAttiva = false;
     i = 0;
   }
 
@@ -169,6 +170,7 @@ $(window).resize(function(){
 
 function animazione(){
 
+  clickAbilitato = false;
   if (domande[j] === 1) {
 
     $(".button.b-1").animate({
@@ -190,6 +192,7 @@ function animazione(){
       left: 0 //mi serve solo come timer
     }, 0, function() {
       console.log("finito");
+      j++;
     });
 
   }
@@ -215,6 +218,7 @@ function animazione(){
       left: 0 //mi serve solo come timer
     }, 0, function() {
       console.log("finito");
+      j++;
     });
 
   }
@@ -240,6 +244,7 @@ function animazione(){
       left: 0 //mi serve solo come timer
     }, 0, function() {
       console.log("finito");
+      j++;
     });
 
   }
@@ -264,11 +269,10 @@ function animazione(){
       left: 0 //mi serve solo come timer
     }, 0, function() {
       console.log("finito");
+      j++;
     });
 
   }
-
-  j++;
 
   if (j == domande.length) {
     clickAbilitato = true;
