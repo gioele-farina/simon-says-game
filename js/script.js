@@ -58,12 +58,12 @@ $(".circle .play").click(function() {
         animazioneAttiva = true;
         controlloAnimazione = setInterval(function(){
            animazione();
+           // Dentro la funzione animazoine queste variabili sono settate così
+           // clickAbilitato = true;
+           // domandaPronta = true;
         }, 1000);
       }
     }
-      // Dentro la funzione animazoine queste variabili sono settate così
-      // clickAbilitato = true;
-      // domandaPronta = true;
 
 
     //controlla la risposta solo se l'animazione delle domande ha finito,
@@ -144,6 +144,11 @@ $("#game-container .button").click(function(){
       // Animation complete.
       $(this).removeClass("userclick");
     });
+
+    // setTimeout(function(){
+    //   $(this).removeClass("userclick");
+    // }, 150);
+
   }
 });
 
@@ -212,108 +217,42 @@ function animazione(){
   if (domande[j] === 1) {
 
     play1.play();
-    $(".button.b-1").animate({
-      left: 0 //mi serve solo come timer
-    }, 0, function() {
-      // Animation complete.
-      console.log("aggiunta classe");
-      $(".button.b-1").addClass("playing");
-    });
-
-    $(".button.b-1").animate({
-      left: 0 //mi serve solo come timer
-    }, 500, function() {
-      // Animation complete.
+    $(".button.b-1").addClass("playing");
+    setTimeout(function(){
       $(".button.b-1").removeClass("playing");
-    });
-
-    $(".button.b-1").animate({
-      left: 0 //mi serve solo come timer
-    }, 0, function() {
-      console.log("finito");
       j++;
-    });
-
+    }, 550);
   }
 
   if (domande[j] === 2) {
 
     play2.play();
-    $(".button.b-2").animate({
-      left: 0 //mi serve solo come timer
-    }, 0, function() {
-      // Animation complete.
-      console.log("aggiunta classe");
-      $(".button.b-2").addClass("playing");
-    });
-
-    $(".button.b-2").animate({
-      left: 0 //mi serve solo come timer
-    }, 500, function() {
-      // Animation complete.
+    $(".button.b-2").addClass("playing");
+    setTimeout(function(){
       $(".button.b-2").removeClass("playing");
-    });
-
-    $(".button.b-2").animate({
-      left: 0 //mi serve solo come timer
-    }, 0, function() {
-      console.log("finito");
       j++;
-    });
+    }, 550);
 
   }
 
   if (domande[j] === 3) {
 
     play3.play();
-    $(".button.b-3").animate({
-      left: 0 //mi serve solo come timer
-    }, 0, function() {
-      // Animation complete.
-      console.log("aggiunta classe");
-      $(".button.b-3").addClass("playing");
-    });
-
-    $(".button.b-3").animate({
-      left: 0 //mi serve solo come timer
-    }, 500, function() {
-        // Animation complete.
+    $(".button.b-3").addClass("playing");
+    setTimeout(function(){
       $(".button.b-3").removeClass("playing");
-    });
-
-    $(".button.b-3").animate({
-      left: 0 //mi serve solo come timer
-    }, 0, function() {
-      console.log("finito");
       j++;
-    });
-
+    }, 550);
   }
 
   if (domande[j] === 4) {
 
     play4.play();
-    $(".button.b-4").animate({
-      left: 0 //mi serve solo come timer
-    }, 0, function() {
-      // Animation complete.
-      console.log("aggiunta classe");
-      $(".button.b-4").addClass("playing");
-    });
-
-    $(".button.b-4").animate({
-      left: 0 //mi serve solo come timer
-    }, 500, function() {
-      // Animation complete.
+    $(".button.b-4").addClass("playing");
+    setTimeout(function(){
       $(".button.b-4").removeClass("playing");
-    });
-    $(".button.b-4").animate({
-      left: 0 //mi serve solo come timer
-    }, 0, function() {
-      console.log("finito");
       j++;
-    });
-
+    }, 550);
   }
 
   if (j == domande.length) {
